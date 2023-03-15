@@ -36,7 +36,7 @@ setup(
         "numba",
         "scipy",
         "matplotlib",
-        "opencv-contrib-python>=4.5.0.0",
+        # "opencv-contrib-python>=4.5.0.0",
         "simple-parsing",
         "natsort",
         "cached-property",
