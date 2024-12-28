@@ -9,13 +9,12 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
 
     name="multical",
-    version="0.2.0",
+    version="0.3.0",
     author="Oliver Batchelor",
     author_email="saulzar@gmail.com",
     description="Flexible multi-camera multi-board camera calibration library and application.",
     url="https://github.com/saulzar/multical",
     packages=find_namespace_packages(),
-    scripts=['multical/app/multical'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
@@ -25,6 +24,11 @@ setup(
         "Topic :: Multimedia :: Graphics :: Capture :: Digital Camera"
     ],
 
+    entry_points={
+        'console_scripts': [
+            'multical = multical.app.multical:cli',
+        ],
+    },
 
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -40,7 +44,7 @@ setup(
         "simple-parsing",
         "natsort",
         "cached-property",
-        "py-structs>=0.2.7",
+        "py-structs<1.0",
         "palettable",
         "numpy-quaternion",
         "omegaconf",
