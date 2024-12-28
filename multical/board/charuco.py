@@ -79,7 +79,7 @@ class CharucoBoard(Parameters, Board):
     square_length = int(self.square_length * 1000 * pixels_mm)
 
     image_size = [dim * square_length for dim in self.size]
-    return self.board.draw(tuple(image_size), marginSize=margin)
+    return self.board.generateImage(tuple(image_size), marginSize=margin)
 
 
   def __str__(self):
@@ -92,7 +92,7 @@ class CharucoBoard(Parameters, Board):
 
   def detect(self, image):    
     corners, ids, _ = cv2.aruco.detectMarkers(image, 
-      self.board.dictionary, parameters=aruco_config(self.aruco_params))     
+      self.board.getDictionary(), parameters=aruco_config(self.aruco_params))     
     if ids is None: return empty_detection
 
     _, corners, ids = cv2.aruco.interpolateCornersCharuco(
